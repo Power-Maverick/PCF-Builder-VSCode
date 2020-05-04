@@ -12,29 +12,29 @@ Requires [npm](https://nodejs.org/en/) and [PCF CLI](https://aka.ms/PowerAppsCLI
 
 ## List of all available commands
 
-![AllCommands](assets/AllCommands.png)
+![AllCommands](https://github.com/Power-Maverick/PCF-Builder-VSCode/blob/master/assets/AllCommands.png?raw=true)
 
 ## Features
 
 1. Initialize PCF control
 
-![Init-IDE](assets/Initialize-Control.gif)
+![Init-IDE](https://github.com/Power-Maverick/PCF-Builder-VSCode/blob/master/assets/Initialize-Control.gif?raw=true)
 
 2. Build & Test PCF control
 
-![Build-IDE](assets/Build-Control.gif)
+![Build-IDE](https://github.com/Power-Maverick/PCF-Builder-VSCode/blob/master/assets/Build-Control.gif?raw=true)
 
 3. Manage Authentication Profiles
 
-![Auth-Profiles-IDE](assets/Manage-Auth-Profiles.gif)
+![Auth-Profiles-IDE](https://github.com/Power-Maverick/PCF-Builder-VSCode/blob/master/assets/Manage-Auth-Profiles.gif?raw=true)
 
 4. Update PCF CLI
 
-![Update-CLI-IDE](assets/Update-PCF-CLI.gif)
+![Update-CLI-IDE](https://github.com/Power-Maverick/PCF-Builder-VSCode/blob/master/assets/Update-PCF-CLI.gif?raw=true)
 
 5. Quick Deploy using PCF Push
 
-![PCF-Push-IDE](assets/PCF-Push.gif)
+![PCF-Push-IDE](https://github.com/Power-Maverick/PCF-Builder-VSCode/blob/master/assets/PCF-Push.gif?raw=true)
 
 ## Contributing
 
