@@ -1,6 +1,7 @@
 {
 	"name": "pcf-builder",
 	"displayName": "PCF Builder",
+	"publisher": "danish-naglekar",
 	"description": "Helps with initializing, building and testing Power Apps Component Framework components",
 	"version": "0.0.1",
 	"engines": {
