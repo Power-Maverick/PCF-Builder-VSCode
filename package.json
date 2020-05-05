@@ -3,7 +3,7 @@
 	"displayName": "PCF Builder",
 	"publisher": "danish-naglekar",
 	"description": "Helps with initializing, building and testing Power Apps Component Framework components",
-	"version": "1.0.1",
+	"version": "1.0.2",
 	"engines": {
 		"vscode": "^1.44.0"
 	},
@@ -16,7 +16,7 @@
 		"url": "https://github.com/Power-Maverick/PCF-Builder-VSCode.git"
 	},
 	"categories": [
-		"Extension Packs"
+		"Other"
 	],
 	"keywords": [
 		"Power Apps Component Framework",
