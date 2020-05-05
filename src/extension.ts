@@ -1,6 +1,7 @@
 // The module 'vscode' contains the VS Code extensibility API
 // Import the module and reference it with the alias vscode in your code below
 import * as vscode from 'vscode';
+import { NpmPackage } from './NpmPackage';
 
 // this method is called when your extension is activated
 // your extension is activated the very first time the command is executed
@@ -65,49 +66,60 @@ export function activate(context: vscode.ExtensionContext) {
 // this method is called when your extension is deactivated
 export function deactivate() { }
 
-function InitializeControl() {
+async function InitializeControl() {
 	vscode.window.showInformationMessage("PCF Builder: Initializing new PCF component");
 
 	let namespaceInputBoxOptions: vscode.InputBoxOptions = {
 		placeHolder: "Control Namespace",
 		prompt: "Enter your preferred namespace for your control"
 	};
-	let userNamespace: Thenable<string | undefined> = vscode.window.showInputBox(namespaceInputBoxOptions);
-	userNamespace.then((ns) => {
-		if (ns) {
-			let controlNameInputBoxOptions: vscode.InputBoxOptions = {
-				placeHolder: "Control Name",
-				prompt: "Enter your control's name"
-			};
-			let userControlName: Thenable<string | undefined> = vscode.window.showInputBox(controlNameInputBoxOptions);
+	let userNamespace: string | undefined = await vscode.window.showInputBox(namespaceInputBoxOptions);
 
-			userControlName.then((cn) => {
-				if (cn) {
-					let templateOptions: string[] = ["field", "dataset"];
-					let userTemplate: Thenable<string | undefined> = vscode.window.showQuickPick(templateOptions);
+	if(!userNamespace){
+		vscode.window.showErrorMessage("Namespace is required to initialize PCF Component.");
+		return;
+	}
 
-					userTemplate.then((ut) => {
-						if (ut) {
-							let pcfTerminal: vscode.Terminal = vscode.window.createTerminal("PCF Builder");
-							pcfTerminal.show(false);
-							pcfTerminal.sendText("pac pcf init --namespace " + ns + " --name " + cn + " --template " + ut, true);
-							pcfTerminal.sendText("npm install", true);
-						}
-						else {
-							vscode.window.showErrorMessage("Template selection is required to initialize PCF Component.");
-						}
-					});
-				}
-				else {
-					vscode.window.showErrorMessage("Control name is required to initialize PCF Component.");
-				}
-			});
-		}
-		else {
-			vscode.window.showErrorMessage("Namespace is required to initialize PCF Component.");
-		}
+	let controlNameInputBoxOptions: vscode.InputBoxOptions = {
+		placeHolder: "Control Name",
+		prompt: "Enter your control's name"
+	};
+	let userControlName: string | undefined = await vscode.window.showInputBox(controlNameInputBoxOptions);
 
-	});
+	if(!userControlName){
+		vscode.window.showErrorMessage("Control name is required to initialize PCF Component.");
+		return;
+	}
+
+	let templateOptions: string[] = ["field", "dataset"];
+	let userTemplate: string | undefined = await vscode.window.showQuickPick(templateOptions);
+
+	if(!userTemplate){
+		vscode.window.showErrorMessage("Template selection is required to initialize PCF Component.");
+		return;
+	}
+
+	let npmPackages: NpmPackage[] = [
+		{label: "React" ,packages: "react @types/react react-dom @types/react-dom"},
+		{label: "React + Fluent UI", packages: "react @types/react react-dom @types/react-dom @fluentui/react"}
+	];
+
+	let userNpmPackagesQuickPickOptions: vscode.QuickPickOptions = {
+		ignoreFocusOut: true,			
+		placeHolder: "Pick additional libraries to install (Press 'Escape' to skip)"
+	};
+
+	let userNpmPackages: NpmPackage | undefined  = await vscode.window.showQuickPick(npmPackages, userNpmPackagesQuickPickOptions);
+
+	let pcfTerminal: vscode.Terminal = vscode.window.createTerminal("PCF Builder");
+	pcfTerminal.show(false);
+	pcfTerminal.sendText("pac pcf init --namespace " + userNamespace + " --name " + userControlName + " --template " + userTemplate, true);
+	pcfTerminal.sendText("npm install", true);
+
+	// Install addition npm packages if selected
+	if(userNpmPackages !== undefined){
+		pcfTerminal.sendText("npm install " + userNpmPackages.packages, true);
+	}
 }
 
 function BuildControl() {
