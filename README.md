@@ -1,3 +1,7 @@
+![VS Marketplace Installs](https://vsmarketplacebadge.apphb.com/installs/danish-naglekar.pcf-builder.svg)
+![VS Marketplace Version](https://vsmarketplacebadge.apphb.com/version-short/danish-naglekar.pcf-builder.svg)
+![License](https://img.shields.io/github/license/Power-Maverick/PCF-Builder-VSCode)
+
 # PCF Builder
 
 Build your Power Apps Component Framework custom controls faster. No need to rememeber the PCF CLI commands. All commands provided in one selection list for you to execute.
@@ -46,9 +50,25 @@ This software is released under [MIT License](http://www.opensource.org/licenses
 
 ## Release Notes
 
-### 1.0.0
+### 1.0.3
 
-Initial release of PCF Builder
+- Features
+  - Added optional step that allows you to pick additional libraries to be installed during the initialization process.
+    - Options to pick:
+      1. React
+      2. React + Fluent UI
+      3. None (or press escape)
+
+- Bugs Fixed
+  - Command "Show Current Authentication Profile" was throwing error.
+  - Opening of mutiple terminals on different commands is resolved.
+
+- Other Notes
+  - Refactored code for better usability
+
+### 1.0.2
+
+- Initial release of PCF Builder
 
 -------------------------------------------------------------------------------------------
 
