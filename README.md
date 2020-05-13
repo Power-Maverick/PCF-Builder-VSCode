@@ -1,6 +1,9 @@
-![VS Marketplace Installs](https://vsmarketplacebadge.apphb.com/installs/danish-naglekar.pcf-builder.svg)
-![VS Marketplace Version](https://vsmarketplacebadge.apphb.com/version-short/danish-naglekar.pcf-builder.svg)
-![License](https://img.shields.io/github/license/Power-Maverick/PCF-Builder-VSCode)
+[![Visual Studio Marketplace Downloads](https://img.shields.io/visual-studio-marketplace/d/danish-naglekar.pcf-builder)](https://marketplace.visualstudio.com/items?itemName=danish-naglekar.pcf-builder)
+[![Visual Studio Marketplace Version](https://img.shields.io/visual-studio-marketplace/v/danish-naglekar.pcf-builder?label=vscode%20marketplace)](https://marketplace.visualstudio.com/items?itemName=danish-naglekar.pcf-builder)
+[![GitHub stars](https://img.shields.io/github/stars/Power-Maverick/PCF-Builder-VSCode?label=github%20stars)](https://github.com/Power-Maverick/PCF-Builder-VSCode)
+[![License](https://img.shields.io/github/license/Power-Maverick/PCF-Builder-VSCode)](https://github.com/Power-Maverick/PCF-Builder-VSCode/blob/master/LICENSE)
+[![GitHub contributors](https://img.shields.io/github/contributors-anon/Power-Maverick/PCF-Builder-VSCode)](https://github.com/Power-Maverick/PCF-Builder-VSCode/graphs/contributors)
+[![Gitter](https://img.shields.io/gitter/room/Power-Maverick/PCF-Builder-VSCode)](https://gitter.im/PCF-Builder/community)
 
 # PCF Builder
 
