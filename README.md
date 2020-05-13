@@ -5,6 +5,8 @@
 [![GitHub contributors](https://img.shields.io/github/contributors-anon/Power-Maverick/PCF-Builder-VSCode)](https://github.com/Power-Maverick/PCF-Builder-VSCode/graphs/contributors)
 [![Gitter](https://img.shields.io/gitter/room/Power-Maverick/PCF-Builder-VSCode)](https://gitter.im/PCF-Builder/community)
 
+[![Twitter Follow](https://img.shields.io/twitter/follow/DanzMaverick?style=social)](https://twitter.com/Danzmaverick)
+
 # PCF Builder
 
 Build your Power Apps Component Framework custom controls faster. No need to rememeber the PCF CLI commands. All commands provided in one selection list for you to execute.
@@ -73,10 +75,12 @@ This software is released under [MIT License](http://www.opensource.org/licenses
 
 - Initial release of PCF Builder
 
-## Buy me a coffee!! ☕
+## Want to buy me a coffee? ☕
 
 [![paypal](https://www.paypalobjects.com/en_US/i/btn/btn_donateCC_LG.gif)](https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=XK4SZ82J6GFH6&item_name=Power+Maverick+Donation&currency_code=USD&source=github)
 
 -------------------------------------------------------------------------------------------
+
+Special thanks to all [contributors](https://github.com/Power-Maverick/PCF-Builder-VSCode/graphs/contributors).
 
 **Enjoy!**
