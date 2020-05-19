@@ -25,16 +25,7 @@
 	],
 	"license": "MIT",
 	"activationEvents": [
-		"onCommand:pcf-builder.init",
-		"onCommand:pcf-builder.build",
-		"onCommand:pcf-builder.testwatch",
-		"onCommand:pcf-builder.testnowatch",
-		"onCommand:pcf-builder.updatePCFCLI",
-		"onCommand:pcf-builder.createProfile",
-		"onCommand:pcf-builder.listProfile",
-		"onCommand:pcf-builder.deleteProfile",
-		"onCommand:pcf-builder.switchProfile",
-		"onCommand:pcf-builder.pcfPush"
+		"*"
 	],
 	"main": "./out/extension.js",
 	"icon": "icon/PB_Icon.png",
