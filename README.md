@@ -25,6 +25,8 @@ Requires [npm](https://nodejs.org/en/) and [PCF CLI](https://aka.ms/PowerAppsCLI
 
 ## Features
 
+### Commands
+
 1. Initialize PCF control
 
 ![Init-IDE](https://github.com/Power-Maverick/PCF-Builder-VSCode/blob/master/assets/Initialize-Control.gif?raw=true)
@@ -45,6 +47,14 @@ Requires [npm](https://nodejs.org/en/) and [PCF CLI](https://aka.ms/PowerAppsCLI
 
 ![PCF-Push-IDE](https://github.com/Power-Maverick/PCF-Builder-VSCode/blob/master/assets/PCF-Push.gif?raw=true)
 
+### Intellisense
+
+#### Manifest file
+
+Invoke it by pressing `Ctrl+Space`
+
+![ManifestFile-Intellisense](https://github.com/Power-Maverick/PCF-Builder-VSCode/blob/master/assets/ManifestFileIntellisense.gif?raw=true)
+
 ## Contributing
 
 Found a bug? or have a feature request? - Create a pull request or an issue on [GitHub](https://github.com/Power-Maverick/PCF-Builder-VSCode)
@@ -54,6 +64,11 @@ Found a bug? or have a feature request? - Create a pull request or an issue on [
 This software is released under [MIT License](http://www.opensource.org/licenses/mit-license.php)
 
 ## Release Notes
+
+### 1.0.4
+
+- Features
+  - Intellisense available for Manifest file
 
 ### 1.0.3
 
