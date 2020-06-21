@@ -1,8 +1,8 @@
 import * as vscode from 'vscode';
-import { Console } from './Console';
-import { Placeholders } from './Helper/Placeholders';
-import { ErrorMessages } from './Helper/ErrorMessages';
-import { Commands } from './Helper/Commands';
+import { Console } from '../Helper/Console';
+import { Placeholders } from '../Helper/Placeholders';
+import { ErrorMessages } from '../Helper/ErrorMessages';
+import { Commands } from '../Helper/Commands';
 
 export class AuthProfiles {
 	public static ListProfile() {

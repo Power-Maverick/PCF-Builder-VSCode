@@ -74,6 +74,53 @@
 			{
 				"command": "pcf-builder.orgDetails",
 				"title": "PCF Builder - Show Current Authentication Profile"
+			},
+			{
+				"command": "pcf-builder.forcePCF",
+				"title": "PCF Builder - Force Mode"
+			},
+			{
+				"command": "pcf-builder.addRESX",
+				"title": "PCF Builder - Add new RESX File"
+			}
+		],
+		"menus": {
+			"explorer/context": [
+				{
+					"when": "explorerResourceIsFolder",
+					"command": "pcf-builder.addRESX",
+					"group": "2_workspace"
+				}
+			]
+		},
+		"keybindings": [
+			{
+				"command": "pcf-builder.init",
+				"key": "ctrl+p ctrl+i"
+			},
+			{
+				"command": "pcf-builder.build",
+				"key": "ctrl+p ctrl+b"
+			},
+			{
+				"command": "pcf-builder.testwatch",
+				"key": "ctrl+p ctrl+t"
+			},
+			{
+				"command": "pcf-builder.updatePCFCLI",
+				"key": "ctrl+p ctrl+u"
+			},
+			{
+				"command": "pcf-builder.pcfPush",
+				"key": "ctrl+p ctrl+q"
+			},
+			{
+				"command": "pcf-builder.forcePCF",
+				"key": "ctrl+p ctrl+f"
+			},
+			{
+				"command": "pcf-builder.addRESX",
+				"key": "ctrl+p ctrl+r"
 			}
 		]
 	},

@@ -1,5 +1,5 @@
 import * as vscode from 'vscode';
-import { Console } from './Console';
+import { Console } from '../Helper/Console';
 
 export class Others {
     public static UpdatePcfCli() {

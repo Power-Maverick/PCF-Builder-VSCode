@@ -1,9 +1,10 @@
 import * as vscode from 'vscode';
 
-export class NpmPackage implements vscode.QuickPickItem {
-	constructor(label: string, packages: string) {
+export class LcidPicklist implements vscode.QuickPickItem {
+	constructor(label: string, lcid: number, index: number) {
 		this.label = label;
-		this.packages = packages;
+		this.lcid = lcid;
+		this.index = index;
 	}
 
 	label: string;
@@ -11,5 +12,6 @@ export class NpmPackage implements vscode.QuickPickItem {
 	detail?: string | undefined;
 	picked?: boolean | undefined;
 	alwaysShow?: boolean | undefined;
-	packages: string;
+	lcid: number;
+	index: number;
 }
