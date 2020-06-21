@@ -25,6 +25,12 @@ export class Placeholders {
             case this.Control_Name:
                 inbOptions = { placeHolder: this.ipControlName.placeHolderText, prompt: this.ipControlName.prompt };
                 break;
+            case this.Publisher_Prefix:
+                inbOptions = { placeHolder: this.ipPublisherPrefix.placeHolderText, prompt: this.ipPublisherPrefix.prompt };
+                break;
+            case this.Publisher_Name:
+                inbOptions = { placeHolder: this.ipPublisherName.placeHolderText, prompt: this.ipPublisherName.prompt };
+                break;
         
             default:
                 inbOptions = { placeHolder: "", prompt: "" };
@@ -44,6 +50,9 @@ export class Placeholders {
             case this.NPM_Packages:
                 qpOptions = { placeHolder: this.ipNpmPackage.placeHolderText, ignoreFocusOut: ignoreFocus };
                 break;
+            case this.LCIDs:
+                qpOptions = { placeHolder: this.ipLcids.placeHolderText, ignoreFocusOut: ignoreFocus };
+                break;
             
             default:
                 qpOptions = { placeHolder: "", ignoreFocusOut: ignoreFocus };
@@ -60,6 +69,9 @@ export class Placeholders {
     public static Control_Name: string = "Control_Name";
     public static Control_TemplateType: string = "Control_TemplateType";
     public static NPM_Packages: string = "NPM_Packages";
+    public static Publisher_Prefix: string = "Publisher_Prefix";
+    public static Publisher_Name: string = "Publisher_Name";
+    public static LCIDs: string = "LCIDs";
 
     private static ipCDSEnvironmentURL: IPlaceholder = { placeHolderText: "URL (e.g.: https://yourdomain.crm.dynamics.com)", prompt: "Enter your CDS environment URL" };
     private static ipDeleteProfile: IPlaceholder = { placeHolderText: "Index number to delete", prompt: "Enter the index of the instance you want to delete" };
@@ -69,4 +81,8 @@ export class Placeholders {
     private static ipControlName: IPlaceholder = { placeHolderText: "Control Name", prompt: "Enter your control's name" };
     private static ipFieldType: IPlaceholder = { placeHolderText: "Pick template for your project", prompt: "" };
     private static ipNpmPackage: IPlaceholder = { placeHolderText: "Pick additional libraries to install (Press 'Escape' to skip)", prompt: "" };
+    private static ipPublisherPrefix: IPlaceholder = { placeHolderText: "Publisher Prefix for your CDS solution. Less than 5 characters.", prompt: "Enter your preferred publisher prefix that will be applied for your CDS solution" };
+    private static ipPublisherName: IPlaceholder = { placeHolderText: "Publisher Name for your CDS solution", prompt: "Enter your preferred publisher name that will be applied for your CDS solution" };
+
+    private static ipLcids: IPlaceholder = { placeHolderText: "Select your language", prompt: "" };
 }

@@ -1,9 +1,9 @@
 import * as vscode from 'vscode';
-import { NpmPackage } from './NpmPackage';
-import { Console } from './Console';
-import { Placeholders } from './Helper/Placeholders';
-import { ErrorMessages } from './Helper/ErrorMessages';
-import { Commands } from './Helper/Commands';
+import { NpmPackage } from '../Helper/NpmPackage';
+import { Console } from '../Helper/Console';
+import { Placeholders } from '../Helper/Placeholders';
+import { ErrorMessages } from '../Helper/ErrorMessages';
+import { Commands } from '../Helper/Commands';
 
 export class Controls {
 
@@ -36,9 +36,9 @@ export class Controls {
         }
 
         let npmPackagesOption: NpmPackage[] = [
-            { label: "None", packages: "" },
-            { label: "React", packages: "react @types/react react-dom @types/react-dom" },
-            { label: "React + Fluent UI", packages: "react @types/react react-dom @types/react-dom @fluentui/react" }
+            { label: "None", packages: "", index: 0 },
+            { label: "React", packages: "react @types/react react-dom @types/react-dom", index: 1 },
+            { label: "React + Fluent UI", packages: "react @types/react react-dom @types/react-dom @fluentui/react", index: 2 }
         ];
 
         let userNpmPackagesQuickPickOptions: vscode.QuickPickOptions = Placeholders.GetQuickPickOptions(Placeholders.NPM_Packages);
