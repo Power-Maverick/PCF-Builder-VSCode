@@ -3,7 +3,7 @@
 	"displayName": "PCF Builder",
 	"publisher": "danish-naglekar",
 	"description": "Helps with initializing, building and testing Power Apps Component Framework components",
-	"version": "1.0.4",
+	"version": "1.0.5",
 	"engines": {
 		"vscode": "^1.44.0"
 	},
@@ -131,6 +131,9 @@
 		"watch": "tsc -watch -p ./",
 		"pretest": "npm run compile && npm run lint",
 		"test": "node ./out/test/runTest.js"
+	},
+	"dependencies": {
+		"generator-pcf": "^1.2.0"
 	},
 	"devDependencies": {
 		"@types/vscode": "^1.44.0",
