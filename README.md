@@ -4,6 +4,8 @@
 [![License](https://img.shields.io/github/license/Power-Maverick/PCF-Builder-VSCode)](https://github.com/Power-Maverick/PCF-Builder-VSCode/blob/master/LICENSE)
 [![Gitter](https://img.shields.io/gitter/room/Power-Maverick/PCF-Builder-VSCode)](https://gitter.im/PCF-Builder/community)
 
+[![Sponsor](https://img.shields.io/static/v1?label=Sponsor&message=%E2%9D%A4&logo=GitHub)](https://github.com/sponsors/Power-Maverick)
+
 [![Twitter Follow](https://img.shields.io/twitter/follow/DanzMaverick?style=social)](https://twitter.com/Danzmaverick)
 
 # PCF Builder
