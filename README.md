@@ -117,10 +117,6 @@ This software is released under [MIT License](http://www.opensource.org/licenses
 
 - Initial release of PCF Builder
 
-## Want to buy me a coffee? ☕
-
-[![paypal](https://www.paypalobjects.com/en_US/i/btn/btn_donateCC_LG.gif)](https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=XK4SZ82J6GFH6&item_name=Power+Maverick+Donation&currency_code=USD&source=github)
-
 -------------------------------------------------------------------------------------------
 
 **Enjoy!**
