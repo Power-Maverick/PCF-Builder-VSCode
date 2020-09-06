@@ -2,7 +2,7 @@ import * as vscode from 'vscode';
 
 interface IPlaceholder {
     placeHolderText: string;
-	prompt: string;
+    prompt: string;
 }
 
 export class Placeholders {
@@ -31,7 +31,13 @@ export class Placeholders {
             case this.Publisher_Name:
                 inbOptions = { placeHolder: this.ipPublisherName.placeHolderText, prompt: this.ipPublisherName.prompt };
                 break;
-        
+            case this.GitHub_UserName:
+                inbOptions = { placeHolder: this.ipGitHubName.placeHolderText, prompt: this.ipGitHubName.prompt };
+                break;
+            case this.GitHub_RepoName:
+                inbOptions = { placeHolder: this.ipGitHubRepoName.placeHolderText, prompt: this.ipGitHubRepoName.prompt };
+                break;
+
             default:
                 inbOptions = { placeHolder: "", prompt: "" };
                 break;
@@ -53,7 +59,10 @@ export class Placeholders {
             case this.LCIDs:
                 qpOptions = { placeHolder: this.ipLcids.placeHolderText, ignoreFocusOut: ignoreFocus };
                 break;
-            
+            case this.Init_Solution:
+                qpOptions = { placeHolder: this.ipInitSolution.placeHolderText, ignoreFocusOut: ignoreFocus };
+                break;
+
             default:
                 qpOptions = { placeHolder: "", ignoreFocusOut: ignoreFocus };
                 break;
@@ -69,9 +78,12 @@ export class Placeholders {
     public static Control_Name: string = "Control_Name";
     public static Control_TemplateType: string = "Control_TemplateType";
     public static NPM_Packages: string = "NPM_Packages";
+    public static Init_Solution: string = "Init_Solution";
     public static Publisher_Prefix: string = "Publisher_Prefix";
     public static Publisher_Name: string = "Publisher_Name";
     public static LCIDs: string = "LCIDs";
+    public static GitHub_UserName: string = "GitHub_UserName";
+    public static GitHub_RepoName: string = "GitHub_RepoName";
 
     private static ipCDSEnvironmentURL: IPlaceholder = { placeHolderText: "URL (e.g.: https://yourdomain.crm.dynamics.com)", prompt: "Enter your CDS environment URL" };
     private static ipDeleteProfile: IPlaceholder = { placeHolderText: "Index number to delete", prompt: "Enter the index of the instance you want to delete" };
@@ -81,8 +93,12 @@ export class Placeholders {
     private static ipControlName: IPlaceholder = { placeHolderText: "Control Name", prompt: "Enter your control's name" };
     private static ipFieldType: IPlaceholder = { placeHolderText: "Pick template for your project", prompt: "" };
     private static ipNpmPackage: IPlaceholder = { placeHolderText: "Pick additional libraries to install (Press 'Escape' to skip)", prompt: "" };
+    private static ipInitSolution: IPlaceholder = { placeHolderText: "Do you want to initialize CDS solution?", prompt: "" };
     private static ipPublisherPrefix: IPlaceholder = { placeHolderText: "Publisher Prefix for your CDS solution. Less than 5 characters.", prompt: "Enter your preferred publisher prefix that will be applied for your CDS solution" };
     private static ipPublisherName: IPlaceholder = { placeHolderText: "Publisher Name for your CDS solution", prompt: "Enter your preferred publisher name that will be applied for your CDS solution" };
 
     private static ipLcids: IPlaceholder = { placeHolderText: "Select your language", prompt: "" };
+
+    private static ipGitHubName: IPlaceholder = { placeHolderText: "GitHub Username", prompt: "Enter your GitHub Username" };
+    private static ipGitHubRepoName: IPlaceholder = { placeHolderText: "GitHub Repository Name (e.g. PCF-Controls)", prompt: "Enter your GitHub Repository Name" };
 }

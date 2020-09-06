@@ -16,70 +16,115 @@ export function activate(context: vscode.ExtensionContext) {
 	let manifestCompletionProvider = (new Manifest(docSelector)).GetCompletionProvider();
 
 	context.subscriptions.push(manifestCompletionProvider);
+
+	let controls = new Controls(context);
+	let authProfiles = new AuthProfiles(context);
+	let other = new Others(context);
+	let generatorPcf = new GeneratorPCF(context);
 	
 	context.subscriptions.push(vscode.commands.registerCommand(
 		'pcf-builder.init',
-		Controls.InitializeControl
+		() => {
+			controls.InitializeControl();
+		}
 	));
 
 	context.subscriptions.push(vscode.commands.registerCommand(
 		'pcf-builder.build',
-		Controls.BuildControl
+		() => {
+			controls.BuildControl();
+		}
 	));
 
 	context.subscriptions.push(vscode.commands.registerCommand(
 		'pcf-builder.testwatch',
-		Controls.TestWithWatchControl
+		() => {
+			controls.TestWithWatchControl();
+		}
 	));
 
 	context.subscriptions.push(vscode.commands.registerCommand(
 		'pcf-builder.testnowatch',
-		Controls.TestWithNoWatchControl
+		() => {
+			controls.TestWithNoWatchControl();
+		}
 	));
 
 	context.subscriptions.push(vscode.commands.registerCommand(
 		'pcf-builder.updatePCFCLI',
-		Others.UpdatePcfCli
+		() => {
+			other.UpdatePcfCli();
+		}
 	));
 
 	context.subscriptions.push(vscode.commands.registerCommand(
 		'pcf-builder.createProfile',
-		AuthProfiles.CreateProfile
+		() => {
+			authProfiles.CreateProfile();
+		}
 	));
 
 	context.subscriptions.push(vscode.commands.registerCommand(
 		'pcf-builder.listProfile',
-		AuthProfiles.ListProfile
+		() => {
+			authProfiles.ListProfile();
+		}
 	));
 
 	context.subscriptions.push(vscode.commands.registerCommand(
 		'pcf-builder.deleteProfile',
-		AuthProfiles.DeleteProfile
+		() => {
+			authProfiles.DeleteProfile();
+		}
 	));
 
 	context.subscriptions.push(vscode.commands.registerCommand(
 		'pcf-builder.switchProfile',
-		AuthProfiles.SwitchProfile
+		() => {
+			authProfiles.SwitchProfile();
+		}
 	));
 
 	context.subscriptions.push(vscode.commands.registerCommand(
 		'pcf-builder.pcfPush',
-		Others.PcfPush
+		() => {
+			other.PcfPush();
+		}
 	));
 
 	context.subscriptions.push(vscode.commands.registerCommand(
 		'pcf-builder.orgDetails',
-		Others.OrgDetails
+		() => {
+			other.OrgDetails();
+		}
 	));
 
 	context.subscriptions.push(vscode.commands.registerCommand(
 		'pcf-builder.forcePCF',
-		GeneratorPCF.Force
+		() => {
+			generatorPcf.Force();
+		}
 	));
 
 	context.subscriptions.push(vscode.commands.registerCommand(
 		'pcf-builder.addRESX',
-		GeneratorPCF.AddResxFile
+		(args) => {
+			generatorPcf.AddResxFile();
+		}
+	));
+
+	context.subscriptions.push(vscode.commands.registerCommand(
+		'pcf-builder.addGitHubAction',
+		(args) => {
+			generatorPcf.AddGitHubAction();
+		}
+	));
+
+	context.subscriptions.push(vscode.commands.registerCommand(
+		'pcf-builder.generateReadMe',
+		(args) => {
+			generatorPcf.GeneratoReadMe();
+		}
 	));
 }
 

@@ -1,8 +1,11 @@
+[![Build](https://github.com/Power-Maverick/PCF-Builder-VSCode/workflows/Build/badge.svg?branch=master)](https://github.com/Power-Maverick/PCF-Builder-VSCode/actions?query=workflow%3ABuild)
 [![Visual Studio Marketplace Downloads](https://img.shields.io/visual-studio-marketplace/d/danish-naglekar.pcf-builder)](https://marketplace.visualstudio.com/items?itemName=danish-naglekar.pcf-builder)
 [![Visual Studio Marketplace Version](https://img.shields.io/visual-studio-marketplace/v/danish-naglekar.pcf-builder?label=vscode%20marketplace)](https://marketplace.visualstudio.com/items?itemName=danish-naglekar.pcf-builder)
 [![GitHub stars](https://img.shields.io/github/stars/Power-Maverick/PCF-Builder-VSCode?label=github%20stars)](https://github.com/Power-Maverick/PCF-Builder-VSCode)
 [![License](https://img.shields.io/github/license/Power-Maverick/PCF-Builder-VSCode)](https://github.com/Power-Maverick/PCF-Builder-VSCode/blob/master/LICENSE)
 [![Gitter](https://img.shields.io/gitter/room/Power-Maverick/PCF-Builder-VSCode)](https://gitter.im/PCF-Builder/community)
+
+[![Sponsor](https://img.shields.io/static/v1?label=Sponsor&message=%E2%9D%A4&logo=GitHub)](https://github.com/sponsors/Power-Maverick)
 
 [![Twitter Follow](https://img.shields.io/twitter/follow/DanzMaverick?style=social)](https://twitter.com/Danzmaverick)
 
@@ -16,11 +19,31 @@ View list of commands via `Ctrl+Shift+P` and type **PCF Builder**
 
 ## Requirements
 
-Requires [npm](https://nodejs.org/en/) and [PCF CLI](https://aka.ms/PowerAppsCLI)
+You need to have the following prerequisites on your machine:
+
+1. [npm](https://nodejs.org/en/)
+2. [PCF CLI](https://aka.ms/PowerAppsCLI)
+3. [PCF Generator](https://www.npmjs.com/package/generator-pcf)
 
 ## List of all available commands
 
-![AllCommands](https://github.com/Power-Maverick/PCF-Builder-VSCode/blob/master/assets/AllCommands.png?raw=true)
+| Command | Description |
+| ------- | ----------------- |
+| Initialize Component (Simple) | Creates PCF project with basic folder structure. *Less questions asked*. |
+| Initialize Component (Advanced) | Creates PCF project with recommended folder structure. |
+| Build Component | Builds the code component. |
+| Test Component with Watch | Launches Test Harness with ability to code while testing. |
+| Test Component with No Watch | Launches Test Harness but does not re-renderwhen code changes. |
+| Update PCF CLI | Upgrades PCF CLI on the current machine. |
+| Create Authentication Profile | Creates a new profile by authenticating with a particular CDS environment. |
+| List Authentication Profile | Shows list pf profiles that are authenticated with CDS environments for current machine. |
+| Delete Authentication Profile | Deletes a specific profile from the current machine. |
+| Switch Authentication Profile | Changes the default profile connected to CDS environment. |
+| Show Current Authentication Profile | List the currently selected profile connected to CDS environment. |
+| Quick PCF Push | Pushes the code component to CDS environment based on currently selected profile. |
+| Add new RESX File | Creates a new localization file under *strings* folder and adds a reference in ControlManifest file. |
+| Add GitHub Action | Creates a `.yml` file that will build and create CDS solution package under **Releases** on GitHub. |
+| Generate ReadMe file | Creates a preety ReadMe file by parsing the ControlManifst file. |
 
 ## Features
 
@@ -46,7 +69,7 @@ Requires [npm](https://nodejs.org/en/) and [PCF CLI](https://aka.ms/PowerAppsCLI
   
    ![PCF-Push-IDE](https://github.com/Power-Maverick/PCF-Builder-VSCode/blob/master/assets/PCF-Push.gif?raw=true)
 
-6. Force Mode, Adding Resx file
+6. Advanced Mode and Adding Resx file
   
    ![PCF-Force](https://github.com/Power-Maverick/PCF-Builder-VSCode/blob/master/assets/PCF-Generator-Integration.gif?raw=true)
 
@@ -54,7 +77,7 @@ Requires [npm](https://nodejs.org/en/) and [PCF CLI](https://aka.ms/PowerAppsCLI
 
 #### Manifest file
 
-Invoke it by pressing `Ctrl+Space`
+Invoke it by pressing `Ctrl + Space`
 
 ![ManifestFile-Intellisense](https://github.com/Power-Maverick/PCF-Builder-VSCode/blob/master/assets/ManifestFileIntellisense.gif?raw=true)
 
@@ -79,6 +102,19 @@ Found a bug? or have a feature request? - Create a pull request or an issue on [
 This software is released under [MIT License](http://www.opensource.org/licenses/mit-license.php)
 
 ## Release Notes
+
+### 1.1.0
+
+- Features
+  - Ability to skip creation of CDS solution project
+  - PCF Control and CDS Solution details are stored on a workspace for simplified usage
+  - Initialize command allows simple and advance methods
+  - New commands added
+    - GitHub actions for automated deployment
+    - Auto-generate ReadMe file based on ControlManifest details
+
+- Other Notes
+  - Code refactoring and cleanup
 
 ### 1.0.5
 
@@ -114,11 +150,3 @@ This software is released under [MIT License](http://www.opensource.org/licenses
 ### 1.0.2
 
 - Initial release of PCF Builder
-
-## Want to buy me a coffee? ☕
-
-[![paypal](https://www.paypalobjects.com/en_US/i/btn/btn_donateCC_LG.gif)](https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=XK4SZ82J6GFH6&item_name=Power+Maverick+Donation&currency_code=USD&source=github)
-
--------------------------------------------------------------------------------------------
-
-**Enjoy!**

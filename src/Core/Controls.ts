@@ -7,7 +7,16 @@ import { Commands } from '../Helper/Commands';
 
 export class Controls {
 
-    public static async InitializeControl() {
+    private _context: vscode.ExtensionContext;
+
+    /**
+     * Initialization constructor for VS Code Context
+     */
+    constructor(context: vscode.ExtensionContext) {
+        this._context = context;
+    }
+
+    public async InitializeControl() {
         vscode.window.showInformationMessage("PCF Builder: Initializing new PCF component");
 
         let namespaceInputBoxOptions: vscode.InputBoxOptions = Placeholders.GetInputBoxOptions(Placeholders.Control_Namespace);
@@ -17,6 +26,7 @@ export class Controls {
             vscode.window.showErrorMessage(ErrorMessages.ControlNamespace_Required);
             return;
         }
+        this._context.workspaceState.update(Placeholders.Control_Namespace, userNamespace);
 
         let controlNameInputBoxOptions: vscode.InputBoxOptions = Placeholders.GetInputBoxOptions(Placeholders.Control_Name);
         let userControlName: string | undefined = await vscode.window.showInputBox(controlNameInputBoxOptions);
@@ -25,6 +35,7 @@ export class Controls {
             vscode.window.showErrorMessage(ErrorMessages.ControlName_Required);
             return;
         }
+        this._context.workspaceState.update(Placeholders.Control_Name, userControlName);
 
         let templateOptions: string[] = ["field", "dataset"];
         let templateOptionsQuickPickOptions: vscode.QuickPickOptions = Placeholders.GetQuickPickOptions(Placeholders.Control_TemplateType);
@@ -34,6 +45,7 @@ export class Controls {
             vscode.window.showErrorMessage(ErrorMessages.ControlTemplate_Required);
             return;
         }
+        this._context.workspaceState.update(Placeholders.Control_TemplateType, userTemplate);
 
         let npmPackagesOption: NpmPackage[] = [
             { label: "None", packages: "", index: 0 },
@@ -55,7 +67,7 @@ export class Controls {
         Console.RunCommand(commands);
     }
 
-    public static BuildControl() {
+    public BuildControl() {
         vscode.window.showInformationMessage("PCF Builder: Building component");
 
         let commands: string[] = Array();
@@ -64,7 +76,7 @@ export class Controls {
         Console.RunCommand(commands);
     }
 
-    public static TestWithWatchControl() {
+    public TestWithWatchControl() {
         vscode.window.showInformationMessage("PCF Builder: Debugging component with Watch");
 
         let commands: string[] = Array();
@@ -73,7 +85,7 @@ export class Controls {
         Console.RunCommand(commands);
     }
 
-    public static TestWithNoWatchControl() {
+    public TestWithNoWatchControl() {
         vscode.window.showInformationMessage("PCF Builder: Debugging component with No-Watch");
 
         let commands: string[] = Array();

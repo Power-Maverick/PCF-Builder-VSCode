@@ -3,7 +3,7 @@
 	"displayName": "PCF Builder",
 	"publisher": "danish-naglekar",
 	"description": "Helps with initializing, building and testing Power Apps Component Framework components",
-	"version": "1.0.5",
+	"version": "1.1.0",
 	"engines": {
 		"vscode": "^1.44.0"
 	},
@@ -33,55 +33,78 @@
 		"commands": [
 			{
 				"command": "pcf-builder.init",
-				"title": "PCF Builder - Initialize Component"
+				"category": "PCF Builder",
+				"title": "Initialize Component (Simple)"
 			},
 			{
 				"command": "pcf-builder.build",
-				"title": "PCF Builder - Build Component"
+				"category": "PCF Builder",
+				"title": "Build Component"
 			},
 			{
 				"command": "pcf-builder.testwatch",
-				"title": "PCF Builder - Test Component with Watch"
+				"category": "PCF Builder",
+				"title": "Test Component with Watch"
 			},
 			{
 				"command": "pcf-builder.testnowatch",
-				"title": "PCF Builder - Test Component with No Watch"
+				"category": "PCF Builder",
+				"title": "Test Component with No Watch"
 			},
 			{
 				"command": "pcf-builder.updatePCFCLI",
-				"title": "PCF Builder - Update PCF CLI"
+				"category": "PCF Builder",
+				"title": "Update PCF CLI"
 			},
 			{
 				"command": "pcf-builder.createProfile",
-				"title": "PCF Builder - Create Authentication Profile"
+				"category": "PCF Builder",
+				"title": "Create Authentication Profile"
 			},
 			{
 				"command": "pcf-builder.listProfile",
-				"title": "PCF Builder - List Authentication Profile"
+				"category": "PCF Builder",
+				"title": "List Authentication Profile"
 			},
 			{
 				"command": "pcf-builder.deleteProfile",
-				"title": "PCF Builder - Delete Authentication Profile"
+				"category": "PCF Builder",
+				"title": "Delete Authentication Profile"
 			},
 			{
 				"command": "pcf-builder.switchProfile",
-				"title": "PCF Builder - Switch Authentication Profile"
+				"category": "PCF Builder",
+				"title": "Switch Authentication Profile"
 			},
 			{
 				"command": "pcf-builder.pcfPush",
-				"title": "PCF Builder - Quick PCF Push"
+				"category": "PCF Builder",
+				"title": "Quick PCF Push"
 			},
 			{
 				"command": "pcf-builder.orgDetails",
-				"title": "PCF Builder - Show Current Authentication Profile"
+				"category": "PCF Builder",
+				"title": "Show Current Authentication Profile"
 			},
 			{
 				"command": "pcf-builder.forcePCF",
-				"title": "PCF Builder - Force Mode"
+				"category": "PCF Builder",
+				"title": "Initialize Component (Advanced)"
 			},
 			{
 				"command": "pcf-builder.addRESX",
-				"title": "PCF Builder - Add new RESX File"
+				"category": "PCF Builder",
+				"title": "Add new RESX File"
+			},
+			{
+				"command": "pcf-builder.addGitHubAction",
+				"category": "PCF Builder",
+				"title": "Add GitHub Action"
+			},
+			{
+				"command": "pcf-builder.generateReadMe",
+				"category": "PCF Builder",
+				"title": "Generate ReadMe file"
 			}
 		],
 		"menus": {
@@ -133,7 +156,7 @@
 		"test": "node ./out/test/runTest.js"
 	},
 	"dependencies": {
-		"generator-pcf": "^1.2.0"
+		"generator-pcf": "^1.4.0"
 	},
 	"devDependencies": {
 		"@types/vscode": "^1.44.0",

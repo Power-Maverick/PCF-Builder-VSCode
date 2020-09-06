@@ -6,19 +6,19 @@ export class Commands {
     }
 
     public static PacCreateProfile(pro: string) {
-        return `pac auth create --url ${pro}`;    
+        return `pac auth create --url ${pro}`;
     }
 
     public static PacDeleteProfile(pro: string) {
-        return `pac auth delete --index ${pro}`;    
+        return `pac auth delete --index ${pro}`;
     }
 
     public static PacSwitchProfile(pro: string) {
-        return `pac auth select --index ${pro}`;    
+        return `pac auth select --index ${pro}`;
     }
 
     public static PacPcfInit(userNamespace: string, userControlName: string, userTemplate: string) {
-        return `pac pcf init --namespace ${userNamespace} --name ${userControlName} --template ${userTemplate}`;    
+        return `pac pcf init --namespace ${userNamespace} --name ${userControlName} --template ${userTemplate}`;
     }
 
     public static NpmInstall(packages?: string) {
@@ -46,12 +46,29 @@ export class Commands {
         return `yo pcf --ns ${namespace} --n ${controlname} --t ${template} --pkg ${pkg} --pp ${publisherPrefix} --pn ${publisherName} --force`;
     }
 
-    public static AddResxFile(lcid: number | undefined) {
+    public static ForceWithSolutionSkip(namespace: string, controlname: string, template: string, pkg: number) {
+        return `yo pcf --ns ${namespace} --n ${controlname} --t ${template} --pkg ${pkg} --ss true --force`;
+    }
+
+    public static AddResxFile(controlName: string, lcid: number | undefined) {
         if (lcid) {
-            return `yo pcf:resx --lc ${lcid} --force`;
+            return `yo pcf:resx ${controlName} --lc ${lcid} --force`;
         }
         else {
-            return `yo pcf:resx --force`;
+            return `yo pcf:resx ${controlName} --force`;
+        }
+    }
+
+    public static AddGitHubAction(controlName: string) {
+        return `yo pcf:github-action ${controlName}  --force`;
+    }
+
+    public static GenerateReadMe(controlName: string, githubName: string, githubRepoName: string, lcid: number | undefined) {
+        if (lcid) {
+            return `yo pcf:readme ${controlName} --gu ${githubName} --gr ${githubRepoName} --lc ${lcid} --force`;
+        }
+        else {
+            return `yo pcf:readme ${controlName} --gu ${githubName} --gr ${githubRepoName} --lc 1033 --force`;
         }
     }
 }
