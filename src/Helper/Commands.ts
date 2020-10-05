@@ -42,8 +42,8 @@ export class Commands {
      * @param publisherPrefix Publisher Prefix
      * @param publisherName Publisher Name
      */
-    public static Force(namespace: string, controlname: string, template: string, pkg: number, publisherPrefix: string, publisherName: string) {
-        return `yo pcf --ns ${namespace} --n ${controlname} --t ${template} --pkg ${pkg} --pp ${publisherPrefix} --pn ${publisherName} --force`;
+    public static Force(namespace: string, controlname: string, template: string, pkg: number, publisherPrefix: string, publisherName: string, solutionType: string) {
+        return `yo pcf --ns ${namespace} --n ${controlname} --t ${template} --pkg ${pkg} --pp ${publisherPrefix} --pn ${publisherName} --spt ${solutionType} --force`;
     }
 
     public static ForceWithSolutionSkip(namespace: string, controlname: string, template: string, pkg: number) {

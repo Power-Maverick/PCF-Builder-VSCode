@@ -156,7 +156,7 @@
 		"test": "node ./out/test/runTest.js"
 	},
 	"dependencies": {
-		"generator-pcf": "^1.4.0"
+		"generator-pcf": "^1.4.2"
 	},
 	"devDependencies": {
 		"@types/vscode": "^1.44.0",
