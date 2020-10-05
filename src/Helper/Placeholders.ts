@@ -62,6 +62,9 @@ export class Placeholders {
             case this.Init_Solution:
                 qpOptions = { placeHolder: this.ipInitSolution.placeHolderText, ignoreFocusOut: ignoreFocus };
                 break;
+            case this.Solution_Type:
+                qpOptions = { placeHolder: this.ipSolutionType.placeHolderText, ignoreFocusOut: ignoreFocus };
+                break;
 
             default:
                 qpOptions = { placeHolder: "", ignoreFocusOut: ignoreFocus };
@@ -79,6 +82,7 @@ export class Placeholders {
     public static Control_TemplateType: string = "Control_TemplateType";
     public static NPM_Packages: string = "NPM_Packages";
     public static Init_Solution: string = "Init_Solution";
+    public static Solution_Type: string = "Solution_Type";
     public static Publisher_Prefix: string = "Publisher_Prefix";
     public static Publisher_Name: string = "Publisher_Name";
     public static LCIDs: string = "LCIDs";
@@ -94,6 +98,7 @@ export class Placeholders {
     private static ipFieldType: IPlaceholder = { placeHolderText: "Pick template for your project", prompt: "" };
     private static ipNpmPackage: IPlaceholder = { placeHolderText: "Pick additional libraries to install (Press 'Escape' to skip)", prompt: "" };
     private static ipInitSolution: IPlaceholder = { placeHolderText: "Do you want to initialize CDS solution?", prompt: "" };
+    private static ipSolutionType: IPlaceholder =  { placeHolderText: "Pick which solution type(s) do you want to create", prompt: "" };
     private static ipPublisherPrefix: IPlaceholder = { placeHolderText: "Publisher Prefix for your CDS solution. Less than 5 characters.", prompt: "Enter your preferred publisher prefix that will be applied for your CDS solution" };
     private static ipPublisherName: IPlaceholder = { placeHolderText: "Publisher Name for your CDS solution", prompt: "Enter your preferred publisher name that will be applied for your CDS solution" };
 

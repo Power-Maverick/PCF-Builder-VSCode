@@ -70,7 +70,7 @@ export class GeneratorPCF {
         let questionInitSolution: vscode.QuickPickOptions = Placeholders.GetQuickPickOptions(Placeholders.Init_Solution);
         let answerInitSolution: string | undefined = await vscode.window.showQuickPick(["Yes", "No"], questionInitSolution);
 
-        if (!answerInitSolution && answerInitSolution === "Yes") {
+        if (answerInitSolution === "Yes") {
             let ppInputBoxOptions: vscode.InputBoxOptions = Placeholders.GetInputBoxOptions(Placeholders.Publisher_Prefix);
             let pubPrefix: string | undefined = await vscode.window.showInputBox(ppInputBoxOptions);
 
@@ -89,8 +89,11 @@ export class GeneratorPCF {
             }
             this._context.workspaceState.update(Placeholders.Publisher_Name, pubName);
 
+            let questionSolutionType: vscode.QuickPickOptions = Placeholders.GetQuickPickOptions(Placeholders.Solution_Type);
+            let solutionType: string | undefined = await vscode.window.showQuickPick(["Both", "Managed", "Unmanaged"], questionSolutionType);    
+            
             let commands: string[] = Array();
-            commands.push(Commands.Force(userNamespace, userControlName, userTemplate, userNpmPackages?.index ?? 0, pubPrefix, pubName));
+            commands.push(Commands.Force(userNamespace, userControlName, userTemplate, userNpmPackages?.index ?? 0, pubPrefix, pubName, solutionType ?? "Both"));
 
             Console.RunCommand(commands);
         }
