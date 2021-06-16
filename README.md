@@ -1,4 +1,5 @@
-[![Build & Deploy](https://github.com/Power-Maverick/PCF-Builder-VSCode/actions/workflows/build.yml/badge.svg?branch=master)](https://github.com/Power-Maverick/PCF-Builder-VSCode/actions/workflows/build.yml)
+[![Build](https://github.com/Power-Maverick/PCF-Builder-VSCode/actions/workflows/build.yml/badge.svg?branch=master)](https://github.com/Power-Maverick/PCF-Builder-VSCode/actions/workflows/build.yml)
+[![Release](https://github.com/Power-Maverick/PCF-Builder-VSCode/actions/workflows/release.yml/badge.svg?branch=master)](https://github.com/Power-Maverick/PCF-Builder-VSCode/actions/workflows/release.yml)
 [![Visual Studio Marketplace Downloads](https://img.shields.io/visual-studio-marketplace/d/danish-naglekar.pcf-builder)](https://marketplace.visualstudio.com/items?itemName=danish-naglekar.pcf-builder)
 [![Visual Studio Marketplace Version](https://img.shields.io/visual-studio-marketplace/v/danish-naglekar.pcf-builder?label=vscode%20marketplace)](https://marketplace.visualstudio.com/items?itemName=danish-naglekar.pcf-builder)
 [![GitHub stars](https://img.shields.io/github/stars/Power-Maverick/PCF-Builder-VSCode?label=github%20stars)](https://github.com/Power-Maverick/PCF-Builder-VSCode)
