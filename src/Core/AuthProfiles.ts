@@ -1,8 +1,8 @@
-import * as vscode from 'vscode';
-import { Console } from '../Helper/Console';
-import { Placeholders } from '../Helper/Placeholders';
-import { ErrorMessages } from '../Helper/ErrorMessages';
-import { Commands } from '../Helper/Commands';
+import * as vscode from "vscode";
+import { Console } from "../Helper/Console";
+import { Placeholders } from "../Helper/Placeholders";
+import { ErrorMessages } from "../Helper/ErrorMessages";
+import { Commands } from "../Helper/Commands";
 
 export class AuthProfiles {
     private _context: vscode.ExtensionContext;
@@ -14,9 +14,9 @@ export class AuthProfiles {
         this._context = context;
     }
 
-	public ListProfile() {
+    public ListProfile() {
         vscode.window.showInformationMessage("PCF Builder: Listing all Authentication Profile");
-    
+
         let commands: string[] = Array();
         commands.push(Commands.PacAuthList());
 
@@ -25,8 +25,10 @@ export class AuthProfiles {
 
     public async CreateProfile() {
         vscode.window.showInformationMessage("PCF Builder: Create Authentication Profile");
-    
-        let createProfileInputBoxOptions: vscode.InputBoxOptions = Placeholders.GetInputBoxOptions(Placeholders.CDS_Environment_URL);
+
+        let createProfileInputBoxOptions: vscode.InputBoxOptions = Placeholders.GetInputBoxOptions(
+            Placeholders.CDS_Environment_URL,
+        );
         let createProfileResponse: string | undefined = await vscode.window.showInputBox(createProfileInputBoxOptions);
 
         if (!createProfileResponse) {
@@ -41,8 +43,10 @@ export class AuthProfiles {
 
     public async DeleteProfile() {
         vscode.window.showInformationMessage("PCF Builder: Delete Authentication Profile");
-    
-        let profileInputBoxOptions: vscode.InputBoxOptions = Placeholders.GetInputBoxOptions(Placeholders.Profile_Delete);
+
+        let profileInputBoxOptions: vscode.InputBoxOptions = Placeholders.GetInputBoxOptions(
+            Placeholders.Profile_Delete,
+        );
         let deleteProfileResponse: string | undefined = await vscode.window.showInputBox(profileInputBoxOptions);
 
         if (!deleteProfileResponse) {
@@ -58,8 +62,10 @@ export class AuthProfiles {
 
     public async SwitchProfile() {
         vscode.window.showInformationMessage("PCF Builder: Switch Authentication Profile");
-    
-        let profileInputBoxOptions: vscode.InputBoxOptions = Placeholders.GetInputBoxOptions(Placeholders.Profile_Switch);
+
+        let profileInputBoxOptions: vscode.InputBoxOptions = Placeholders.GetInputBoxOptions(
+            Placeholders.Profile_Switch,
+        );
         let switchProfileResponse: string | undefined = await vscode.window.showInputBox(profileInputBoxOptions);
 
         if (!switchProfileResponse) {

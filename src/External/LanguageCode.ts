@@ -1,5 +1,4 @@
-
-export class LanguageCode  {
+export class LanguageCode {
     constructor(label: string, lcid: number, index: number) {
         this.name = label;
         this.value = lcid;

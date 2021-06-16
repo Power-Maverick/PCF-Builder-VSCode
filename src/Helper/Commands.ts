@@ -43,7 +43,15 @@ export class Commands {
      * @param publisherName Publisher Name
      * @param solutionType Solution Type (Both/Managed/Unmanaged)
      */
-    public static Force(namespace: string, controlname: string, template: string, pkg: number, publisherPrefix: string, publisherName: string, solutionType: string) {
+    public static Force(
+        namespace: string,
+        controlname: string,
+        template: string,
+        pkg: number,
+        publisherPrefix: string,
+        publisherName: string,
+        solutionType: string,
+    ) {
         return `yo pcf --ns ${namespace} --n ${controlname} --t ${template} --pkg ${pkg} --pp ${publisherPrefix} --pn ${publisherName} --spt ${solutionType} --force`;
     }
 
@@ -54,8 +62,7 @@ export class Commands {
     public static AddResxFile(controlName: string, lcid: number | undefined) {
         if (lcid) {
             return `yo pcf:resx ${controlName} --lc ${lcid} --force`;
-        }
-        else {
+        } else {
             return `yo pcf:resx ${controlName} --force`;
         }
     }
@@ -64,11 +71,15 @@ export class Commands {
         return `yo pcf:github-action ${controlName}  --force`;
     }
 
-    public static GenerateReadMe(controlName: string, githubName: string, githubRepoName: string, lcid: number | undefined) {
+    public static GenerateReadMe(
+        controlName: string,
+        githubName: string,
+        githubRepoName: string,
+        lcid: number | undefined,
+    ) {
         if (lcid) {
             return `yo pcf:readme ${controlName} --gu ${githubName} --gr ${githubRepoName} --lc ${lcid} --force`;
-        }
-        else {
+        } else {
             return `yo pcf:readme ${controlName} --gu ${githubName} --gr ${githubRepoName} --lc 1033 --force`;
         }
     }

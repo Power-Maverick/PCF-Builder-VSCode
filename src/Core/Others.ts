@@ -1,6 +1,6 @@
-import * as vscode from 'vscode';
-import { Console } from '../Helper/Console';
-import { Placeholders } from '../Helper/Placeholders';
+import * as vscode from "vscode";
+import { Console } from "../Helper/Console";
+import { Placeholders } from "../Helper/Placeholders";
 
 export class Others {
     private _context: vscode.ExtensionContext;
@@ -14,32 +14,32 @@ export class Others {
 
     public UpdatePcfCli() {
         vscode.window.showInformationMessage("PCF Builder: Update PCF CLI to latest");
-    
+
         let commands: string[] = Array();
         commands.push(`pac install latest`);
 
         Console.RunCommand(commands);
     }
-    
+
     public async PcfPush() {
         vscode.window.showInformationMessage("PCF Builder: Quick PCF Push");
-    
+
         let savedPublisher: string | undefined = this._context.workspaceState.get(Placeholders.Publisher_Prefix);
         let pcfPushResponse: string | undefined;
 
         if (savedPublisher) {
             let pcfPushInputBoxOptions: vscode.InputBoxOptions = {
                 placeHolder: "Press 'Escape' to reuse save publisher; else overwrite it here",
-                prompt: "Saved Publisher Prefix is " + savedPublisher
+                prompt: "Saved Publisher Prefix is " + savedPublisher,
             };
             pcfPushResponse = await vscode.window.showInputBox(pcfPushInputBoxOptions);
             if (!pcfPushResponse) {
                 pcfPushResponse = savedPublisher;
             }
-
-        }
-        else {
-            let pcfPushInputBoxOptions: vscode.InputBoxOptions = Placeholders.GetInputBoxOptions(Placeholders.Publisher_Prefix);
+        } else {
+            let pcfPushInputBoxOptions: vscode.InputBoxOptions = Placeholders.GetInputBoxOptions(
+                Placeholders.Publisher_Prefix,
+            );
             pcfPushResponse = await vscode.window.showInputBox(pcfPushInputBoxOptions);
         }
 
@@ -58,10 +58,10 @@ export class Others {
 
         Console.RunCommand(commands);
     }
-    
+
     public OrgDetails() {
         vscode.window.showInformationMessage("PCF Builder: Showing PCF Organization Details");
-    
+
         let commands: string[] = Array();
         commands.push(`pac org who`);
 
