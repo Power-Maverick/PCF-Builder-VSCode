@@ -1,12 +1,12 @@
-import * as vscode from 'vscode';
-import { Console } from '../Helper/Console';
-import { Commands } from '../Helper/Commands';
-import { OpenUrl } from '../Helper/OpenUrl';
-import { Placeholders } from '../Helper/Placeholders';
-import { ErrorMessages } from '../Helper/ErrorMessages';
-import { NpmPackage } from '../Helper/NpmPackage';
-import { LanguageCode } from '../External/LanguageCode';
-import { LcidPicklist } from './LcidPicklist';
+import * as vscode from "vscode";
+import { Console } from "../Helper/Console";
+import { Commands } from "../Helper/Commands";
+import { OpenUrl } from "../Helper/OpenUrl";
+import { Placeholders } from "../Helper/Placeholders";
+import { ErrorMessages } from "../Helper/ErrorMessages";
+import { NpmPackage } from "../Helper/NpmPackage";
+import { LanguageCode } from "../External/LanguageCode";
+import { LcidPicklist } from "./LcidPicklist";
 import LangIds from "../Configs/lcid.json";
 
 export class GeneratorPCF {
@@ -20,17 +20,20 @@ export class GeneratorPCF {
     }
 
     public async Force() {
-
-        const btnBrowseGeneratorPCF: vscode.MessageItem = { title: 'Browse Generator PCF' };
+        const btnBrowseGeneratorPCF: vscode.MessageItem = { title: "Browse Generator PCF" };
         const urlGeneratorPCF: string = "https://www.npmjs.com/package/generator-pcf";
 
-        vscode.window.showInformationMessage("PCF Builder: Running PCF Force Yeoman", btnBrowseGeneratorPCF).then(async (result: vscode.MessageItem | undefined) => {
-            if (result === btnBrowseGeneratorPCF) {
-                await OpenUrl(urlGeneratorPCF);
-            }
-        });
+        vscode.window
+            .showInformationMessage("PCF Builder: Running PCF Force Yeoman", btnBrowseGeneratorPCF)
+            .then(async (result: vscode.MessageItem | undefined) => {
+                if (result === btnBrowseGeneratorPCF) {
+                    await OpenUrl(urlGeneratorPCF);
+                }
+            });
 
-        let namespaceInputBoxOptions: vscode.InputBoxOptions = Placeholders.GetInputBoxOptions(Placeholders.Control_Namespace);
+        let namespaceInputBoxOptions: vscode.InputBoxOptions = Placeholders.GetInputBoxOptions(
+            Placeholders.Control_Namespace,
+        );
         let userNamespace: string | undefined = await vscode.window.showInputBox(namespaceInputBoxOptions);
 
         if (!userNamespace) {
@@ -39,7 +42,9 @@ export class GeneratorPCF {
         }
         this._context.workspaceState.update(Placeholders.Control_Namespace, userNamespace);
 
-        let controlNameInputBoxOptions: vscode.InputBoxOptions = Placeholders.GetInputBoxOptions(Placeholders.Control_Name);
+        let controlNameInputBoxOptions: vscode.InputBoxOptions = Placeholders.GetInputBoxOptions(
+            Placeholders.Control_Name,
+        );
         let userControlName: string | undefined = await vscode.window.showInputBox(controlNameInputBoxOptions);
 
         if (!userControlName) {
@@ -49,8 +54,13 @@ export class GeneratorPCF {
         this._context.workspaceState.update(Placeholders.Control_Name, userControlName);
 
         let templateOptions: string[] = ["field", "dataset"];
-        let templateOptionsQuickPickOptions: vscode.QuickPickOptions = Placeholders.GetQuickPickOptions(Placeholders.Control_TemplateType);
-        let userTemplate: string | undefined = await vscode.window.showQuickPick(templateOptions, templateOptionsQuickPickOptions);
+        let templateOptionsQuickPickOptions: vscode.QuickPickOptions = Placeholders.GetQuickPickOptions(
+            Placeholders.Control_TemplateType,
+        );
+        let userTemplate: string | undefined = await vscode.window.showQuickPick(
+            templateOptions,
+            templateOptionsQuickPickOptions,
+        );
 
         if (!userTemplate) {
             vscode.window.showErrorMessage(ErrorMessages.ControlTemplate_Required);
@@ -61,17 +71,33 @@ export class GeneratorPCF {
         let npmPackagesOption: NpmPackage[] = [
             { label: "None", packages: "", index: 0 },
             { label: "React", packages: "react @types/react react-dom @types/react-dom", index: 1 },
-            { label: "React + Fluent UI", packages: "react @types/react react-dom @types/react-dom @fluentui/react", index: 2 }
+            {
+                label: "React + Fluent UI",
+                packages: "react @types/react react-dom @types/react-dom @fluentui/react",
+                index: 2,
+            },
         ];
 
-        let userNpmPackagesQuickPickOptions: vscode.QuickPickOptions = Placeholders.GetQuickPickOptions(Placeholders.NPM_Packages);
-        let userNpmPackages: NpmPackage | undefined = await vscode.window.showQuickPick(npmPackagesOption, userNpmPackagesQuickPickOptions);
+        let userNpmPackagesQuickPickOptions: vscode.QuickPickOptions = Placeholders.GetQuickPickOptions(
+            Placeholders.NPM_Packages,
+        );
+        let userNpmPackages: NpmPackage | undefined = await vscode.window.showQuickPick(
+            npmPackagesOption,
+            userNpmPackagesQuickPickOptions,
+        );
 
-        let questionInitSolution: vscode.QuickPickOptions = Placeholders.GetQuickPickOptions(Placeholders.Init_Solution);
-        let answerInitSolution: string | undefined = await vscode.window.showQuickPick(["Yes", "No"], questionInitSolution);
+        let questionInitSolution: vscode.QuickPickOptions = Placeholders.GetQuickPickOptions(
+            Placeholders.Init_Solution,
+        );
+        let answerInitSolution: string | undefined = await vscode.window.showQuickPick(
+            ["Yes", "No"],
+            questionInitSolution,
+        );
 
         if (answerInitSolution === "Yes") {
-            let ppInputBoxOptions: vscode.InputBoxOptions = Placeholders.GetInputBoxOptions(Placeholders.Publisher_Prefix);
+            let ppInputBoxOptions: vscode.InputBoxOptions = Placeholders.GetInputBoxOptions(
+                Placeholders.Publisher_Prefix,
+            );
             let pubPrefix: string | undefined = await vscode.window.showInputBox(ppInputBoxOptions);
 
             if (!pubPrefix || pubPrefix.length > 5) {
@@ -80,7 +106,9 @@ export class GeneratorPCF {
             }
             this._context.workspaceState.update(Placeholders.Publisher_Prefix, pubPrefix);
 
-            let pnInputBoxOptions: vscode.InputBoxOptions = Placeholders.GetInputBoxOptions(Placeholders.Publisher_Name);
+            let pnInputBoxOptions: vscode.InputBoxOptions = Placeholders.GetInputBoxOptions(
+                Placeholders.Publisher_Name,
+            );
             let pubName: string | undefined = await vscode.window.showInputBox(pnInputBoxOptions);
 
             if (!pubName) {
@@ -89,17 +117,34 @@ export class GeneratorPCF {
             }
             this._context.workspaceState.update(Placeholders.Publisher_Name, pubName);
 
-            let questionSolutionType: vscode.QuickPickOptions = Placeholders.GetQuickPickOptions(Placeholders.Solution_Type);
-            let solutionType: string | undefined = await vscode.window.showQuickPick(["Both", "Managed", "Unmanaged"], questionSolutionType);    
-            
+            let questionSolutionType: vscode.QuickPickOptions = Placeholders.GetQuickPickOptions(
+                Placeholders.Solution_Type,
+            );
+            let solutionType: string | undefined = await vscode.window.showQuickPick(
+                ["Both", "Managed", "Unmanaged"],
+                questionSolutionType,
+            );
+
             let commands: string[] = Array();
-            commands.push(Commands.Force(userNamespace, userControlName, userTemplate, userNpmPackages?.index ?? 0, pubPrefix, pubName, solutionType ?? "Both"));
+            commands.push(
+                Commands.Force(
+                    userNamespace,
+                    userControlName,
+                    userTemplate,
+                    userNpmPackages?.index ?? 0,
+                    pubPrefix,
+                    pubName,
+                    solutionType ?? "Both",
+                ),
+            );
 
             Console.RunCommand(commands);
         }
 
         let commands: string[] = Array();
-        commands.push(Commands.ForceWithSolutionSkip(userNamespace, userControlName, userTemplate, userNpmPackages?.index ?? 0));
+        commands.push(
+            Commands.ForceWithSolutionSkip(userNamespace, userControlName, userTemplate, userNpmPackages?.index ?? 0),
+        );
 
         Console.RunCommand(commands);
     }
@@ -110,7 +155,9 @@ export class GeneratorPCF {
         let savedControlName: string | undefined = this._context.workspaceState.get(Placeholders.Control_Name);
 
         if (!savedControlName) {
-            let controlNameInputBoxOptions: vscode.InputBoxOptions = Placeholders.GetInputBoxOptions(Placeholders.Control_Name);
+            let controlNameInputBoxOptions: vscode.InputBoxOptions = Placeholders.GetInputBoxOptions(
+                Placeholders.Control_Name,
+            );
             let userControlName: string | undefined = await vscode.window.showInputBox(controlNameInputBoxOptions);
 
             if (!userControlName) {
@@ -144,7 +191,9 @@ export class GeneratorPCF {
         let savedControlName: string | undefined = this._context.workspaceState.get(Placeholders.Control_Name);
 
         if (!savedControlName) {
-            let controlNameInputBoxOptions: vscode.InputBoxOptions = Placeholders.GetInputBoxOptions(Placeholders.Control_Name);
+            let controlNameInputBoxOptions: vscode.InputBoxOptions = Placeholders.GetInputBoxOptions(
+                Placeholders.Control_Name,
+            );
             let userControlName: string | undefined = await vscode.window.showInputBox(controlNameInputBoxOptions);
 
             if (!userControlName) {
@@ -167,7 +216,9 @@ export class GeneratorPCF {
         let savedControlName: string | undefined = this._context.workspaceState.get(Placeholders.Control_Name);
 
         if (!savedControlName) {
-            let controlNameInputBoxOptions: vscode.InputBoxOptions = Placeholders.GetInputBoxOptions(Placeholders.Control_Name);
+            let controlNameInputBoxOptions: vscode.InputBoxOptions = Placeholders.GetInputBoxOptions(
+                Placeholders.Control_Name,
+            );
             let userControlName: string | undefined = await vscode.window.showInputBox(controlNameInputBoxOptions);
 
             if (!userControlName) {
@@ -182,7 +233,9 @@ export class GeneratorPCF {
         let savedGitHubRepo: string | undefined = this._context.workspaceState.get(Placeholders.GitHub_RepoName);
 
         if (!savedGitHubName) {
-            let githubNameInputBoxOptions: vscode.InputBoxOptions = Placeholders.GetInputBoxOptions(Placeholders.GitHub_UserName);
+            let githubNameInputBoxOptions: vscode.InputBoxOptions = Placeholders.GetInputBoxOptions(
+                Placeholders.GitHub_UserName,
+            );
             let githubName: string | undefined = await vscode.window.showInputBox(githubNameInputBoxOptions);
 
             if (!githubName) {
@@ -194,7 +247,9 @@ export class GeneratorPCF {
         }
 
         if (!savedGitHubRepo) {
-            let githubRepoInputBoxOptions: vscode.InputBoxOptions = Placeholders.GetInputBoxOptions(Placeholders.GitHub_RepoName);
+            let githubRepoInputBoxOptions: vscode.InputBoxOptions = Placeholders.GetInputBoxOptions(
+                Placeholders.GitHub_RepoName,
+            );
             let githubRepo: string | undefined = await vscode.window.showInputBox(githubRepoInputBoxOptions);
 
             if (!githubRepo) {
@@ -221,5 +276,4 @@ export class GeneratorPCF {
 
         Console.RunCommand(commands);
     }
-
 }

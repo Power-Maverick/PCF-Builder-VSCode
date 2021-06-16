@@ -1,5 +1,5 @@
 import { Snippets } from "./Snippets";
-import * as vscode from 'vscode';
+import * as vscode from "vscode";
 
 export interface IDataTypes {
     type: string;
@@ -26,7 +26,11 @@ export class DataTypes {
         types.push({ type: this.DateAndTime, snippet: Snippets.DateAndTime, kind: vscode.CompletionItemKind.Enum });
         types.push({ type: this.Decimal, snippet: Snippets.Decimal, kind: vscode.CompletionItemKind.Value });
         types.push({ type: this.Enum, snippet: Snippets.Enum, kind: vscode.CompletionItemKind.Value });
-        types.push({ type: this.FloatingPoint, snippet: Snippets.FloatingPoint, kind: vscode.CompletionItemKind.Value });
+        types.push({
+            type: this.FloatingPoint,
+            snippet: Snippets.FloatingPoint,
+            kind: vscode.CompletionItemKind.Value,
+        });
         types.push({ type: this.MultiLine, snippet: Snippets.MultiLine, kind: vscode.CompletionItemKind.Value });
         types.push({ type: this.OptionSet, snippet: Snippets.OptionSet, kind: vscode.CompletionItemKind.Value });
         types.push({ type: this.TwoOptions, snippet: Snippets.TwoOptions, kind: vscode.CompletionItemKind.Value });

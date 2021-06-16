@@ -1,5 +1,5 @@
 import { Snippets } from "./Snippets";
-import * as vscode from 'vscode';
+import * as vscode from "vscode";
 
 export interface IFeatureUses {
     feature: string;

@@ -1,4 +1,4 @@
-import * as vscode from 'vscode';
+import * as vscode from "vscode";
 
 interface IPlaceholder {
     placeHolderText: string;
@@ -11,7 +11,10 @@ export class Placeholders {
 
         switch (placeholder) {
             case this.CDS_Environment_URL:
-                inbOptions = { placeHolder: this.ipCDSEnvironmentURL.placeHolderText, prompt: this.ipCDSEnvironmentURL.prompt };
+                inbOptions = {
+                    placeHolder: this.ipCDSEnvironmentURL.placeHolderText,
+                    prompt: this.ipCDSEnvironmentURL.prompt,
+                };
                 break;
             case this.Profile_Delete:
                 inbOptions = { placeHolder: this.ipDeleteProfile.placeHolderText, prompt: this.ipDeleteProfile.prompt };
@@ -20,13 +23,19 @@ export class Placeholders {
                 inbOptions = { placeHolder: this.ipSwitchProfile.placeHolderText, prompt: this.ipSwitchProfile.prompt };
                 break;
             case this.Control_Namespace:
-                inbOptions = { placeHolder: this.ipControlNamespace.placeHolderText, prompt: this.ipControlNamespace.prompt };
+                inbOptions = {
+                    placeHolder: this.ipControlNamespace.placeHolderText,
+                    prompt: this.ipControlNamespace.prompt,
+                };
                 break;
             case this.Control_Name:
                 inbOptions = { placeHolder: this.ipControlName.placeHolderText, prompt: this.ipControlName.prompt };
                 break;
             case this.Publisher_Prefix:
-                inbOptions = { placeHolder: this.ipPublisherPrefix.placeHolderText, prompt: this.ipPublisherPrefix.prompt };
+                inbOptions = {
+                    placeHolder: this.ipPublisherPrefix.placeHolderText,
+                    prompt: this.ipPublisherPrefix.prompt,
+                };
                 break;
             case this.Publisher_Name:
                 inbOptions = { placeHolder: this.ipPublisherName.placeHolderText, prompt: this.ipPublisherName.prompt };
@@ -35,7 +44,10 @@ export class Placeholders {
                 inbOptions = { placeHolder: this.ipGitHubName.placeHolderText, prompt: this.ipGitHubName.prompt };
                 break;
             case this.GitHub_RepoName:
-                inbOptions = { placeHolder: this.ipGitHubRepoName.placeHolderText, prompt: this.ipGitHubRepoName.prompt };
+                inbOptions = {
+                    placeHolder: this.ipGitHubRepoName.placeHolderText,
+                    prompt: this.ipGitHubRepoName.prompt,
+                };
                 break;
 
             default:
@@ -89,21 +101,57 @@ export class Placeholders {
     public static GitHub_UserName: string = "GitHub_UserName";
     public static GitHub_RepoName: string = "GitHub_RepoName";
 
-    private static ipCDSEnvironmentURL: IPlaceholder = { placeHolderText: "URL (e.g.: https://yourdomain.crm.dynamics.com)", prompt: "Enter your CDS environment URL" };
-    private static ipDeleteProfile: IPlaceholder = { placeHolderText: "Index number to delete", prompt: "Enter the index of the instance you want to delete" };
-    private static ipSwitchProfile: IPlaceholder = { placeHolderText: "Index number to make primary", prompt: "Enter the index of the instance you want to make primary" };
+    private static ipCDSEnvironmentURL: IPlaceholder = {
+        placeHolderText: "URL (e.g.: https://yourdomain.crm.dynamics.com)",
+        prompt: "Enter your CDS environment URL",
+    };
+    private static ipDeleteProfile: IPlaceholder = {
+        placeHolderText: "Index number to delete",
+        prompt: "Enter the index of the instance you want to delete",
+    };
+    private static ipSwitchProfile: IPlaceholder = {
+        placeHolderText: "Index number to make primary",
+        prompt: "Enter the index of the instance you want to make primary",
+    };
 
-    private static ipControlNamespace: IPlaceholder = { placeHolderText: "Namespace for your control", prompt: "Enter your preferred namespace for your control" };
-    private static ipControlName: IPlaceholder = { placeHolderText: "Control Name", prompt: "Enter your control's name" };
+    private static ipControlNamespace: IPlaceholder = {
+        placeHolderText: "Namespace for your control",
+        prompt: "Enter your preferred namespace for your control",
+    };
+    private static ipControlName: IPlaceholder = {
+        placeHolderText: "Control Name",
+        prompt: "Enter your control's name",
+    };
     private static ipFieldType: IPlaceholder = { placeHolderText: "Pick template for your project", prompt: "" };
-    private static ipNpmPackage: IPlaceholder = { placeHolderText: "Pick additional libraries to install (Press 'Escape' to skip)", prompt: "" };
-    private static ipInitSolution: IPlaceholder = { placeHolderText: "Do you want to initialize CDS solution?", prompt: "" };
-    private static ipSolutionType: IPlaceholder =  { placeHolderText: "Pick which solution type(s) do you want to create", prompt: "" };
-    private static ipPublisherPrefix: IPlaceholder = { placeHolderText: "Publisher Prefix for your CDS solution. Less than 5 characters.", prompt: "Enter your preferred publisher prefix that will be applied for your CDS solution" };
-    private static ipPublisherName: IPlaceholder = { placeHolderText: "Publisher Name for your CDS solution", prompt: "Enter your preferred publisher name that will be applied for your CDS solution" };
+    private static ipNpmPackage: IPlaceholder = {
+        placeHolderText: "Pick additional libraries to install (Press 'Escape' to skip)",
+        prompt: "",
+    };
+    private static ipInitSolution: IPlaceholder = {
+        placeHolderText: "Do you want to initialize CDS solution?",
+        prompt: "",
+    };
+    private static ipSolutionType: IPlaceholder = {
+        placeHolderText: "Pick which solution type(s) do you want to create",
+        prompt: "",
+    };
+    private static ipPublisherPrefix: IPlaceholder = {
+        placeHolderText: "Publisher Prefix for your CDS solution. Less than 5 characters.",
+        prompt: "Enter your preferred publisher prefix that will be applied for your CDS solution",
+    };
+    private static ipPublisherName: IPlaceholder = {
+        placeHolderText: "Publisher Name for your CDS solution",
+        prompt: "Enter your preferred publisher name that will be applied for your CDS solution",
+    };
 
     private static ipLcids: IPlaceholder = { placeHolderText: "Select your language", prompt: "" };
 
-    private static ipGitHubName: IPlaceholder = { placeHolderText: "GitHub Username", prompt: "Enter your GitHub Username" };
-    private static ipGitHubRepoName: IPlaceholder = { placeHolderText: "GitHub Repository Name (e.g. PCF-Controls)", prompt: "Enter your GitHub Repository Name" };
+    private static ipGitHubName: IPlaceholder = {
+        placeHolderText: "GitHub Username",
+        prompt: "Enter your GitHub Username",
+    };
+    private static ipGitHubRepoName: IPlaceholder = {
+        placeHolderText: "GitHub Repository Name (e.g. PCF-Controls)",
+        prompt: "Enter your GitHub Repository Name",
+    };
 }

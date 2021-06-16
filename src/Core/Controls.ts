@@ -1,12 +1,11 @@
-import * as vscode from 'vscode';
-import { NpmPackage } from '../Helper/NpmPackage';
-import { Console } from '../Helper/Console';
-import { Placeholders } from '../Helper/Placeholders';
-import { ErrorMessages } from '../Helper/ErrorMessages';
-import { Commands } from '../Helper/Commands';
+import * as vscode from "vscode";
+import { NpmPackage } from "../Helper/NpmPackage";
+import { Console } from "../Helper/Console";
+import { Placeholders } from "../Helper/Placeholders";
+import { ErrorMessages } from "../Helper/ErrorMessages";
+import { Commands } from "../Helper/Commands";
 
 export class Controls {
-
     private _context: vscode.ExtensionContext;
 
     /**
@@ -19,7 +18,9 @@ export class Controls {
     public async InitializeControl() {
         vscode.window.showInformationMessage("PCF Builder: Initializing new PCF component");
 
-        let namespaceInputBoxOptions: vscode.InputBoxOptions = Placeholders.GetInputBoxOptions(Placeholders.Control_Namespace);
+        let namespaceInputBoxOptions: vscode.InputBoxOptions = Placeholders.GetInputBoxOptions(
+            Placeholders.Control_Namespace,
+        );
         let userNamespace: string | undefined = await vscode.window.showInputBox(namespaceInputBoxOptions);
 
         if (!userNamespace) {
@@ -28,7 +29,9 @@ export class Controls {
         }
         this._context.workspaceState.update(Placeholders.Control_Namespace, userNamespace);
 
-        let controlNameInputBoxOptions: vscode.InputBoxOptions = Placeholders.GetInputBoxOptions(Placeholders.Control_Name);
+        let controlNameInputBoxOptions: vscode.InputBoxOptions = Placeholders.GetInputBoxOptions(
+            Placeholders.Control_Name,
+        );
         let userControlName: string | undefined = await vscode.window.showInputBox(controlNameInputBoxOptions);
 
         if (!userControlName) {
@@ -38,8 +41,13 @@ export class Controls {
         this._context.workspaceState.update(Placeholders.Control_Name, userControlName);
 
         let templateOptions: string[] = ["field", "dataset"];
-        let templateOptionsQuickPickOptions: vscode.QuickPickOptions = Placeholders.GetQuickPickOptions(Placeholders.Control_TemplateType);
-        let userTemplate: string | undefined = await vscode.window.showQuickPick(templateOptions, templateOptionsQuickPickOptions);
+        let templateOptionsQuickPickOptions: vscode.QuickPickOptions = Placeholders.GetQuickPickOptions(
+            Placeholders.Control_TemplateType,
+        );
+        let userTemplate: string | undefined = await vscode.window.showQuickPick(
+            templateOptions,
+            templateOptionsQuickPickOptions,
+        );
 
         if (!userTemplate) {
             vscode.window.showErrorMessage(ErrorMessages.ControlTemplate_Required);
@@ -50,11 +58,20 @@ export class Controls {
         let npmPackagesOption: NpmPackage[] = [
             { label: "None", packages: "", index: 0 },
             { label: "React", packages: "react @types/react react-dom @types/react-dom", index: 1 },
-            { label: "React + Fluent UI", packages: "react @types/react react-dom @types/react-dom @fluentui/react", index: 2 }
+            {
+                label: "React + Fluent UI",
+                packages: "react @types/react react-dom @types/react-dom @fluentui/react",
+                index: 2,
+            },
         ];
 
-        let userNpmPackagesQuickPickOptions: vscode.QuickPickOptions = Placeholders.GetQuickPickOptions(Placeholders.NPM_Packages);
-        let userNpmPackages: NpmPackage | undefined = await vscode.window.showQuickPick(npmPackagesOption, userNpmPackagesQuickPickOptions);
+        let userNpmPackagesQuickPickOptions: vscode.QuickPickOptions = Placeholders.GetQuickPickOptions(
+            Placeholders.NPM_Packages,
+        );
+        let userNpmPackages: NpmPackage | undefined = await vscode.window.showQuickPick(
+            npmPackagesOption,
+            userNpmPackagesQuickPickOptions,
+        );
 
         let commands: string[] = Array();
         commands.push(Commands.PacPcfInit(userNamespace, userControlName, userTemplate));
@@ -93,5 +110,4 @@ export class Controls {
 
         Console.RunCommand(commands);
     }
-    
 }

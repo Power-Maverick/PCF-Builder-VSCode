@@ -19,7 +19,8 @@ export class Snippets {
     static resx: string = '<resx path="strings/${1}.resx" version="${2}" />';
 
     // Feature Uses
-    static Device: string = "Device.${1|captureAudio,captureImage,captureVideo,getBarcodeValue,getCurrentPosition,pickFile|}";
+    static Device: string =
+        "Device.${1|captureAudio,captureImage,captureVideo,getBarcodeValue,getCurrentPosition,pickFile|}";
     static Utility: string = "Utility";
     static WebAPI: string = "WebAPI";
 }
