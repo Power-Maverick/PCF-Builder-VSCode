@@ -1,25 +1,37 @@
 # This workflow will do a clean install of node dependencies, build the source code and run tests across different versions of node
 # For more information see: https://help.github.com/actions/language-and-framework-guides/using-nodejs-with-github-actions
 
-name: Build
+name: Build & Deploy
 
 on:
-    push:
-        branches: [master]
-    pull_request:
-        branches: [master]
+  push:
+    branches:
+      - master
+  pull_request:
+        branches: 
+      - master
+  release:
+    types:
+    - created
 
 jobs:
-    build:
-        runs-on: ubuntu-latest
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v2
+    - name: Install Node.js
+      uses: actions/setup-node@v1
+      with:
+        node-version: 12.x
+    - name: Run Build
+      run: |
+        npm install
+        npm ci
+        npm run compile
+    - name: Publish
+      if: startsWith( github.ref, 'refs/tags/releases/')
+      run: npm run deploy
+      env:
+        VSCE_PAT: ${{ secrets.VSCE_PAT }}
 
-        steps:
-            - uses: actions/checkout@v2
-            - uses: actions/setup-node@v1
-              with:
-                  node-version: 12.x
-            - name: npm install, build
-              run: |
-                  npm install
-                  npm ci
-                  npm run build --if-present
