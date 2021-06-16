@@ -5,7 +5,7 @@
 	"description": "Helps with initializing, building and testing Power Apps Component Framework components",
 	"version": "1.1.2",
 	"engines": {
-		"vscode": "^1.44.0"
+		"vscode": "^1.51.0"
 	},
 	"homepage": "https://github.com/Power-Maverick/PCF-Builder-VSCode",
 	"bugs": {
