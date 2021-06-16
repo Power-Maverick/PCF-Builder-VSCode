@@ -2,7 +2,7 @@ import * as vscode from "vscode";
 import * as os from "os";
 import * as path from "path";
 import { ComponentPreviewPanel } from "./TestHarnessPanel";
-import { PREVIEW_TASK_NAME, EXTENSION_NAME } from "../Helper/constants";
+import { PREVIEW_TASK_NAME } from "../Helper/constants";
 import { store } from "../Helper/Utils";
 
 export class Preview {

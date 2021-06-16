@@ -1,6 +1,5 @@
 import * as vscode from "vscode";
 import { TERMINAL_NAME } from "./constants";
-import { Preview } from "../Preview/Main";
 
 export class Console {
     private static isTerminalCreated: boolean = false;
