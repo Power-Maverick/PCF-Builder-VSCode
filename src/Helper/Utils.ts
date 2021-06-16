@@ -1,7 +1,7 @@
 import * as vscode from "vscode";
 import parse from "xml-parser";
 import { TextDecoder, TextEncoder } from "util";
-import { CONTROL_MANIFEST_FILENAME, EXTENSION_NAME } from "./constants";
+import { CONTROL_MANIFEST_FILENAME, EXTENSION_NAME } from "./Constants";
 import { observable } from "mobx";
 
 export function byteArrayToString(value: Uint8Array) {
